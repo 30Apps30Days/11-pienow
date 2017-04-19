@@ -16,4 +16,7 @@ $ cordova run
 ## License
 Licensed under [MIT License].
 
+Pie icon by [Claire Jones] from the Noun Project
+
 [MIT License]: http://opensource.org/licenses/MIT
+[Claire Jones]: https://thenounproject.com/term/pie/30963/

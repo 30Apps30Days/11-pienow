@@ -2,11 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'
-      data: gap: https://ssl.gstatic.com 'unsafe-eval';
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self' data: gap:
+        https://ssl.gstatic.com
+        https://csi.gstatic.com
+        https://maps.googleapis.com
+        'unsafe-eval';
       style-src 'self' 'unsafe-inline';
       media-src *;
-      img-src 'self' data: content:;" />
+      img-src 'self' data: content: https://csi.gstatic.com;
+    " />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1,
@@ -22,10 +27,19 @@
   </head>
   <body>
     <div id="app" class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+      <!-- <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Pie Now</span>
+          <div class="mdl-layout-spacer"></div>
+        </div>
+      </header> -->
+
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Pie Now</span>
-
         <form id="options" action="#">
+          <p>
+            Find pie nearby.
+          </p>
         </form>
 
         <footer>
@@ -36,16 +50,80 @@
             </a>
           </nav>
 
-          Idea by PLACEHOLDER<br />
+          Idea by Kristin Miriam Mead.<br />
+          Icon by
+          <a href="https://thenounproject.com/term/pie/30963/">Claire Jones</a>.
+          <br />
           App by <a href="http://metaist.com">Metaist LLC</a>
         </footer>
 
       </div>
       <main class="mdl-layout__content page-content">
+        <div id="no-results" class="center-center">
+          <big>No results.</big>
+        </div>
+
+        <div class="cards">
+          <div class="mdl-card mdl-shadow--2dp hidden">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Unnamed Entity</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <strong class="status closed">Closed Now</strong>
+              <div class="rating">
+                <span class="value">0.0</span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+              </div>
+              <div><!--
+                <a target="_blank" href="https://www.google.com/maps?daddr=55+Fifth+Street,+New+York,+NY+01234"
+                class="btn-map mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" title="Get Directions">
+                <i class="material-icons">directions</i>
+              </a> -->
+                <span class="result-addr">
+                  55 Fifth Street, New York, NY 01234
+                </span>
+              </div>
+              <!-- <div class="more-info">
+                <a target="_blank" href="tel:+15555555555"
+                  class="btn-phone mdl-button mdl-button--icon
+                    mdl-js-button mdl-js-ripple-effect">
+                  <i class="material-icons">phone</i>
+                </a>
+                <span class="result-phone">(555) 555-5555</span>
+              </div> -->
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <a target="_blank" href="" class="read-more mdl-button
+                mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                More Info
+              </a>
+              <div class="mdl-layout-spacer"></div>
+              <a target="_blank" href="" class="btn-map mdl-button
+                mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                <i class="material-icons">directions</i>
+              </a>
+            </div>
+            <div class="mdl-card__menu">
+              <small class="result-type">Establishment</small>
+              <!-- <img src="data/photo.jpg" /> -->
+            </div>
+          </div>
+
+        </div>
+
+        <footer id="attrs"></footer>
       </main>
     </div>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key={{PIENOW_API_KEY}}&libraries=places"></script>
     <script src="cordova.js"></script>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/lodash/dist/lodash.min.js"></script>
+    <script src="lib/duil/dist/duil.min.js"></script>
     <script src="app/index.js"></script>
   </body>
 </html>

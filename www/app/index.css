@@ -49,7 +49,7 @@ footer a {
 }
 
 #options {
-  margin: 0 auto;
+  margin: 1em auto;
   width: 80%;
 }
 
@@ -57,7 +57,7 @@ footer a {
   display: block;
 }
 
-.mdl-layout__content { overflow: hidden; }
+.is-small-screen .mdl-layout__content { padding-top: 5em; }
 
 .center-center {
   position: absolute;
@@ -73,3 +73,61 @@ footer a {
   text-align: center;
   vertical-align: center;
 }
+
+.hidden { display: none; }
+
+#no-results {
+  font-size: 5em;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
+}
+
+.mdl-card {
+  margin: 1em;
+  width: 25em;
+  min-height: 150px;
+}
+
+/* Ratings */
+.rating { color: #e7711b; }
+.rating > .star { display: inline-block; }
+.rating > .star:before {
+  content: "\2606";
+  font-weight: bold;
+}
+
+.rating > .star.set:before { content: "\2605"; }
+
+/* Card */
+.status.closed { color: #cc0000; }
+
+.more-info { display: none; }
+
+.mdl-card img {
+  width: auto;
+  height: 80px;
+}
+
+.mdl-card__title {
+  padding-bottom: 0;
+  align-items: flex-start;
+}
+
+.mdl-card__title > h4 { margin-top: 0; }
+
+.mdl-card__supporting-text { padding-top: 0; }
+
+.mdl-card__actions {
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+
+.mdl-card__actions > .material-icons { padding-right: 10px; }
